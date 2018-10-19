@@ -1,0 +1,3515 @@
+{
+  "info": {
+    "_postman_id": "c7c0339a-e0fd-4426-bdd3-14a105e14491",
+    "name": "v1",
+    "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "f7edbcbf-892a-4e7e-9e93-fef168010291",
+      "name": "Authentication",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "0d0186b0-709c-4290-a416-a6ed10738375",
+          "name": "Request Access Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "55ffa72f-37ba-4f53-9f5a-289421aa4c95",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "description": "The grant type code|password|client_credentials",
+                  "type": "text"
+                },
+                {
+                  "key": "client_id",
+                  "value": "{{client_id}}",
+                  "description": "The client id",
+                  "type": "text"
+                },
+                {
+                  "key": "client_secret",
+                  "value": "{{client_secret}}",
+                  "description": "The client secret",
+                  "type": "text"
+                },
+                {
+                  "key": "username",
+                  "value": "{{username}}",
+                  "description": "The user's email address",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "description": "The user's password",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "*",
+                  "description": "The scope",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{host}}/oauth/token",
+            "description": "Get an access token."
+          },
+          "response": [
+            {
+              "id": "f383363c-94ef-4695-b986-f38e591ce7b8",
+              "name": "Request Access Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "grant_type",
+                      "value": "password",
+                      "description": "The grant type code|password|client_credentials",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "{{client_id}}",
+                      "description": "The client id",
+                      "type": "text"
+                    },
+                    {
+                      "key": "client_secret",
+                      "value": "{{client_secret}}",
+                      "description": "The client secret",
+                      "type": "text"
+                    },
+                    {
+                      "key": "username",
+                      "value": "{{username}}",
+                      "description": "The user's email address",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "{{password}}",
+                      "description": "The user's password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "*",
+                      "description": "The scope",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/oauth/token"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 01:53:50 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1865"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 7200,\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhmYzVkY2MwNzI2MDZjMmU4ZTlkMzhhNTQwMDIwZjFkZGQwODg2N2IyOGIzMDE5NWViOGZmNzQ2OWExNGYxN2FkYTZiMDE4OWFlNmE3ZmNkIn0.eyJhdWQiOiIyIiwianRpIjoiOGZjNWRjYzA3MjYwNmMyZThlOWQzOGE1NDAwMjBmMWRkZDA4ODY3YjI4YjMwMTk1ZWI4ZmY3NDY5YTE0ZjE3YWRhNmIwMTg5YWU2YTdmY2QiLCJpYXQiOjE1Mzk5MTQwMzAsIm5iZiI6MTUzOTkxNDAzMCwiZXhwIjoxNTM5OTIxMjMwLCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.oMXfrJ_ssFp4ZdgpbqV4Wq_qds20fgMLtUEZqyY4AVLhSVMm_guGLa_H2q3s4Kul_wCxEP0FtbhTW0WH-BSHdKj7dS16-2fxEjuU7vMOb6Jzo6UX6MYcIa5Rgv40BTJ-L4WT-62rW1yEkGfLsoeD0G4lSgzX40jizPPGbIizAXWl5B4NZo5mansavLU1faOFOIYaA_XUX2_t_lqj22Itq1_rrXJRj2C68DJrSqayVby6YyM6d4OYSIvTxSwnjNkLVxSp1KgBOM72q9RvPD_SXj0JOLyDtUmv-F4tmF03jwVelqg-g2XCJnrrNwFe5xGP1LEp72JpIRgNmEUk44mSQMMkAezmSOSjiKB5Wyn_eaPhfAWGpSboUbW-RnAZaSIsy2xpbGDu_Ubm4To6ZjAkROvjyi3jczW8-9NfolEI1-ESeosdT47e_MohzIypWixC7i1AKLi5_Ckek0OPISRHcM_sCRTpkDnIQ8LEIGU3uKXc2nPAKI4T13fsboDDQWq73wKgVBbzZXQzs-cvLReu2n8NnOY7A_G8cTrtGbSbGZtUeLbaKzVXE2Ke5idO6vQZwjJt9O1YLrEVSkLi-6qHO8yZ-rHEZswQ4u2DYz9o6K5y1hJZV1LkwnrK99eZkiGX8uR_BrhiAHyH9hIyUcJP2R_F5nQLWM8p7gwftqZq-oA\",\n    \"refresh_token\": \"def5020077b4ca5ac65cec2b36cdbcdb19c52d5f4c3d4921bf1bb0c89be7c2e857e6cd1c937bf4a07c86973c68d47c9743297b05d022e6a895be2fd632aa38bde11176ee0234fab1b10d31375dcf829c93e165936e7e5e3758bcc5fe1bf9940e211a8339a74da6aceadada527178a301d17f05451549b23afc596686b3a684a078f639215f46249085ff4ff2e411a2a6144db2c4681c62f27152b68b1dcae2553e2c921dc65a6a0d9c7ad3584f71209dcfe870a49ceba588e0fde3dd28878c5dee8ad872427a32d914b031246d33bc10b00b14133a9df3f8d74a0f58f8fa23a4d4a893a0517d065d775744655a5d0a93c2e34ad5958f8829f1cac7c3e09ca5191c597af575af4c5cad761cb062fa226a26130ff1f6c22fd60c85b795b5f537829f2ca947f4ad207fd8559119ec52f74db2370ac2bbdbb5bb66f4dc0ca6739d69560f186a397df58fb74cfda9e706a52597e7789a0fd9b4bfe92a81429a9acca678106c8d\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "dbddd91f-03f3-4721-845c-d5c4bfccc8be",
+          "name": "Refresh Access Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "55ffa72f-37ba-4f53-9f5a-289421aa4c95",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "The grant type",
+                  "key": "grant_type",
+                  "type": "text",
+                  "value": "refresh_token"
+                },
+                {
+                  "description": "The client id",
+                  "key": "client_id",
+                  "type": "text",
+                  "value": "{{client_id}}"
+                },
+                {
+                  "description": "The client secret",
+                  "key": "client_secret",
+                  "type": "text",
+                  "value": "{{client_secret}}"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "",
+                  "description": "The refresh token",
+                  "type": "text"
+                },
+                {
+                  "description": "The scope",
+                  "key": "scope",
+                  "type": "text",
+                  "value": "*"
+                }
+              ]
+            },
+            "url": "https://{{host}}/oauth/token",
+            "description": "Get a new access token."
+          },
+          "response": [
+            {
+              "id": "db9c96d0-e640-488d-8bdf-4fb63230c980",
+              "name": "Refresh Access Token",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "The grant type",
+                      "key": "grant_type",
+                      "type": "text",
+                      "value": "refresh_token"
+                    },
+                    {
+                      "description": "The client id",
+                      "key": "client_id",
+                      "type": "text",
+                      "value": "{{client_id}}"
+                    },
+                    {
+                      "description": "The client secret",
+                      "key": "client_secret",
+                      "type": "text",
+                      "value": "{{client_secret}}"
+                    },
+                    {
+                      "key": "refresh_token",
+                      "value": "def5020077b4ca5ac65cec2b36cdbcdb19c52d5f4c3d4921bf1bb0c89be7c2e857e6cd1c937bf4a07c86973c68d47c9743297b05d022e6a895be2fd632aa38bde11176ee0234fab1b10d31375dcf829c93e165936e7e5e3758bcc5fe1bf9940e211a8339a74da6aceadada527178a301d17f05451549b23afc596686b3a684a078f639215f46249085ff4ff2e411a2a6144db2c4681c62f27152b68b1dcae2553e2c921dc65a6a0d9c7ad3584f71209dcfe870a49ceba588e0fde3dd28878c5dee8ad872427a32d914b031246d33bc10b00b14133a9df3f8d74a0f58f8fa23a4d4a893a0517d065d775744655a5d0a93c2e34ad5958f8829f1cac7c3e09ca5191c597af575af4c5cad761cb062fa226a26130ff1f6c22fd60c85b795b5f537829f2ca947f4ad207fd8559119ec52f74db2370ac2bbdbb5bb66f4dc0ca6739d69560f186a397df58fb74cfda9e706a52597e7789a0fd9b4bfe92a81429a9acca678106c8d",
+                      "description": "The refresh token",
+                      "type": "text"
+                    },
+                    {
+                      "description": "The scope",
+                      "key": "scope",
+                      "type": "text",
+                      "value": "*"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/oauth/token"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 01:55:29 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1865"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 7200,\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk4YjllNzYyMjNiMDI0NTU1MGY0YmM2MTdjY2VhZWE0M2Y2YTUwODQwNGI0MWNhMjVkYjQ4N2ZiMDZjMzc3NjJlMmFlMjdjNWY4MTk4MzI4In0.eyJhdWQiOiIyIiwianRpIjoiOThiOWU3NjIyM2IwMjQ1NTUwZjRiYzYxN2NjZWFlYTQzZjZhNTA4NDA0YjQxY2EyNWRiNDg3ZmIwNmMzNzc2MmUyYWUyN2M1ZjgxOTgzMjgiLCJpYXQiOjE1Mzk5MTQxMjksIm5iZiI6MTUzOTkxNDEyOSwiZXhwIjoxNTM5OTIxMzI5LCJzdWIiOiIxIiwic2NvcGVzIjpbIioiXX0.P3AimQa2oWSDoA877wm079Oi4HPcG5hO9y0Z1_lZHw8HyhAf1OOmDM0uwLQ_ToMzp2mqUcQ9RU7NNRF-9LrC_9j52MnmQ6_5jwo0Q6CJ6lwNXvPFtAnZ4HkDoDSVbKcp-di78WuRljQtfMkVWSFSqPFwo-Qwrdu7Y95ksc13knX2S7evDoNHf-SCnPHndz1tfEpVa3D1XfX8PK9qUyrDGyR6rWixym1psA2vIzqkJj3sguyCLOIpUp9WjJfnDKjxbfAKxn3EO0oOHrKjsCFc098oOmfOw-cx90ejTudnWMSwXyrl3uNLNK0AVS1EtRBygNto8B06knjHUpkD7wJT1p3Y8BAZQxIki5pPwcnTMHgWA9-MP43-f2d2RMoXEBomey7rlr-DCMqfVka76wWQxVGuxVVsbuvxCGJVE3QOAJVZbLmE4eE2INojqY3l51AQ0s3pbwSGF5_Uk2ChbXOBpmpDG3H4Af8GXRj-SJQr3Fj6fOyICPDHwR0QcYbUKM5DB7eb0eS6p6NtN9tZgy5HnFa5rB0Er5J7s7JzWzjirSX4XGbtjo0aoomtsDBImGtSEJGAoUEtq_Os4I1x7h5GASU09eAUWsuwpnGEqw8veogqoMkNkrYiZ_iqnuJ75MxL-EjH5uOaj63hNxYMAeteU-HdwNCJJ2m6pjcLDG4eBFk\",\n    \"refresh_token\": \"def5020016fca67b2b495db995f22d786dcfb122db944ad280ef4ebfa2e9fafed293f8bf6f4908687d56b1a4f2dd0fb9bb5173c72b22cf408e6a5b4da0170c39974e8ccb27c2f05a3c9ff075de3c6cc0d27a4bb7d03275ab1e726500d29a06b22840f81319189005bba81adb2f4c20ab0192524a0a55da1348745621edca14bdd919d7ec0ef857461d6c3c1dbb7e09fa624351fb77dd5a90a50fb7ab31007411b8a79366a2bcafae65063baf155f7813cb9a73e7cfdfb51026f534dde3ee4f2235a76123db9d2cc5cb25af3c351b66b5cfae8115e055367d3c2c133fe33d47c64bf47e7a1ce960d653c8251005d79d8b9619101eb9e37903b38ef49f70e1e1b226929caae5e947a32d149cf125db846de6d59ad8a50933fa3c94846edaecadd632023cf11b684336fdabac3267b6d120a47ae356eb72116670ef678b62256c46afa1c14517b9c1c6eec0244bda79b9a668af28c2619095483a31f869e7a9f453025ed6f1\"\n}"
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "noauth"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "10067f97-f4d5-4131-81f2-b7af96380121",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "fcfe7d89-eb95-423d-a299-f9e1af8b3600",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "_postman_id": "eaf5c974-09b1-4237-9813-22ca3bd30d14",
+      "name": "User",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "0d0344aa-cb1e-4b1f-a89d-d30b12169ea7",
+          "name": "Current User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains user's email\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.email).to.equal(pm.environment.get(\"username\"));",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{host}}/{{api_version}}/user",
+            "description": "Fetch the currently logged in user."
+          },
+          "response": [
+            {
+              "id": "6f8628e7-afd4-4359-8cc1-7d9ecd9bc350",
+              "name": "Current User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{host}}/{{api_version}}/user"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Oct 2018 23:32:21 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "239"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": 1,\n    \"first_name\": \"Mike\",\n    \"last_name\": \"Buonomo\",\n    \"email\": \"mrb2590@gmail.com\",\n    \"slug\": \"mrb2590\",\n    \"folder_id\": 1,\n    \"email_verified_at\": \"2018-10-18 03:03:12\",\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-18 03:03:12\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "3bff5750-292d-4420-83f4-af80595b1c70",
+          "name": "Single User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://{{host}}/{{api_version}}/users/1",
+            "description": "Fetch a user by their id."
+          },
+          "response": [
+            {
+              "id": "499370ea-ddc3-4ce9-893e-f51bd24edd84",
+              "name": "Single User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{host}}/{{api_version}}/users/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Oct 2018 23:32:34 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "239"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": 1,\n    \"first_name\": \"Mike\",\n    \"last_name\": \"Buonomo\",\n    \"email\": \"mrb2590@gmail.com\",\n    \"slug\": \"mrb2590\",\n    \"folder_id\": 1,\n    \"email_verified_at\": \"2018-10-18 03:03:12\",\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-18 03:03:12\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "98c114a4-3746-4dac-abfe-dfe4f4511990",
+          "name": "All Users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Response paging information is correct\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    const query = request.url.split('?')[1];",
+                  "    const paramArray = query.split('&');",
+                  "    paramArray.forEach((param) => {",
+                  "        var key = param.split('=')[0];",
+                  "        var value = param.split('=')[1];",
+                  "",
+                  "        if (key == 'page') {",
+                  "            pm.expect(jsonData.current_page).to.equal(parseInt(value));",
+                  "        }",
+                  "",
+                  "        if (key == 'limit') {",
+                  "            pm.expect(jsonData.per_page).to.equal(parseInt(value));",
+                  "        }",
+                  "    });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/{{api_version}}/users?page=1&limit=10",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{api_version}}",
+                "users"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "equals": true,
+                  "description": "The page to get"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "equals": true,
+                  "description": "The max number of items per page"
+                }
+              ]
+            },
+            "description": "Fetch all users paginated."
+          },
+          "response": [
+            {
+              "id": "edaf3648-7c5d-43e7-a8a9-32a5bf7de964",
+              "name": "All Users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{host}}/{{api_version}}/users?page=1&limit=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{api_version}}",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "equals": true,
+                      "description": "The page to get"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "equals": true,
+                      "description": "The max number of items per page"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Oct 2018 23:32:40 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "57"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2698"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"first_name\": \"Mike\",\n            \"last_name\": \"Buonomo\",\n            \"email\": \"mrb2590@gmail.com\",\n            \"slug\": \"mrb2590\",\n            \"folder_id\": 1,\n            \"email_verified_at\": \"2018-10-18 03:03:12\",\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:12\",\n            \"updated_at\": \"2018-10-18 03:03:12\"\n        },\n        {\n            \"id\": 2,\n            \"first_name\": \"Mollie\",\n            \"last_name\": \"Little\",\n            \"email\": \"korey12@example.net\",\n            \"slug\": \"korey12\",\n            \"folder_id\": 2,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:18\"\n        },\n        {\n            \"id\": 3,\n            \"first_name\": \"Henri\",\n            \"last_name\": \"Friesen\",\n            \"email\": \"cmayert@example.org\",\n            \"slug\": \"cmayert\",\n            \"folder_id\": 3,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:18\"\n        },\n        {\n            \"id\": 4,\n            \"first_name\": \"Kayden\",\n            \"last_name\": \"Weissnat\",\n            \"email\": \"kaleigh.vandervort@example.net\",\n            \"slug\": \"kaleighvandervort\",\n            \"folder_id\": 4,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 5,\n            \"first_name\": \"Esther\",\n            \"last_name\": \"Nitzsche\",\n            \"email\": \"schiller.michaela@example.org\",\n            \"slug\": \"schillermichaela\",\n            \"folder_id\": 5,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 6,\n            \"first_name\": \"Alford\",\n            \"last_name\": \"Adams\",\n            \"email\": \"qcrist@example.net\",\n            \"slug\": \"qcrist\",\n            \"folder_id\": 6,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 7,\n            \"first_name\": \"Domenic\",\n            \"last_name\": \"Walker\",\n            \"email\": \"lakin.jovan@example.org\",\n            \"slug\": \"lakinjovan\",\n            \"folder_id\": 7,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 8,\n            \"first_name\": \"Cooper\",\n            \"last_name\": \"Kutch\",\n            \"email\": \"mayer.rick@example.org\",\n            \"slug\": \"mayerrick\",\n            \"folder_id\": 8,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 9,\n            \"first_name\": \"Edgar\",\n            \"last_name\": \"Bashirian\",\n            \"email\": \"luciano55@example.org\",\n            \"slug\": \"luciano55\",\n            \"folder_id\": 9,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:19\"\n        },\n        {\n            \"id\": 10,\n            \"first_name\": \"Amiya\",\n            \"last_name\": \"Hessel\",\n            \"email\": \"vern.schulist@example.com\",\n            \"slug\": \"vernschulist\",\n            \"folder_id\": 10,\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:16\",\n            \"updated_at\": \"2018-10-18 03:03:20\"\n        }\n    ],\n    \"first_page_url\": \"https://dev.api.buonomo.app/v1/users?page=1\",\n    \"from\": 1,\n    \"last_page\": 6,\n    \"last_page_url\": \"https://dev.api.buonomo.app/v1/users?page=6\",\n    \"next_page_url\": \"https://dev.api.buonomo.app/v1/users?page=2\",\n    \"path\": \"https://dev.api.buonomo.app/v1/users\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 51\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "6d84ed90-87d9-4b0c-9fef-58a5ae6e64b7",
+          "name": "Create User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Created user has correct information\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "    for (var key in request.data) {",
+                  "        if (key == 'password' || key == 'verified') {",
+                  "            continue;",
+                  "        }",
+                  "        pm.expect(request.data[key]).to.equal(responseData[key]);",
+                  "    }",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "first_name",
+                  "value": "Mike",
+                  "description": "The user's first_name",
+                  "type": "text"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Buonomo",
+                  "description": "The user's last_name",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "testing123@example.com",
+                  "description": "The user's email address",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "testing123",
+                  "description": "The user's password",
+                  "type": "text"
+                },
+                {
+                  "key": "verified",
+                  "value": "1",
+                  "description": "Automatically verify the user's email address",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{host}}/{{api_version}}/users",
+            "description": "Create a new user."
+          },
+          "response": [
+            {
+              "id": "6c7075d9-4ba3-4beb-9fad-ac1b3aacdcf3",
+              "name": "Create User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "first_name",
+                      "value": "Mike",
+                      "description": "The user's first_name",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Buonomo",
+                      "description": "The user's last_name",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "testing123@example.com",
+                      "description": "The user's email address",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "testing123",
+                      "description": "The user's password",
+                      "type": "text"
+                    },
+                    {
+                      "key": "verified",
+                      "value": "1",
+                      "description": "Automatically verify the user's email address",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/users"
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 03:45:06 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "58"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "231"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"first_name\": \"Mike\",\n    \"last_name\": \"Buonomo\",\n    \"email\": \"testing123@example.com\",\n    \"slug\": \"testing123\",\n    \"email_verified_at\": \"2018-10-19 03:45:06\",\n    \"updated_at\": \"2018-10-19 03:45:06\",\n    \"created_at\": \"2018-10-19 03:45:06\",\n    \"id\": 60,\n    \"folder_id\": 73\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "91b5267f-aebd-4a5f-8b72-ca0dccd2c28b",
+          "name": "Update User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Updated user has correct information\", function () {",
+                  "    const responseData = pm.response.json();",
+                  "    for (var key in request.data) {",
+                  "        if (key == 'password') {",
+                  "            continue;",
+                  "        }",
+                  "        pm.expect(request.data[key]).to.equal(responseData[key]);",
+                  "    }",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "first_name",
+                  "value": "Arnold",
+                  "description": "The user's first name",
+                  "type": "text"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Palmer",
+                  "description": "The user's last name",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "arnold@paldmer9.com",
+                  "description": "The user's email address",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "mynewpasswordl11",
+                  "description": "The user's password",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{host}}/{{api_version}}/users/1",
+            "description": "Update a user's information."
+          },
+          "response": [
+            {
+              "id": "1af7a3a1-663b-42ab-aec5-8c660fd59cbe",
+              "name": "Update User",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "first_name",
+                      "value": "Arnold",
+                      "description": "The user's new first name",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Palmer",
+                      "description": "The user's new last name",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "arnold@palmer9.com",
+                      "description": "The user's new email address",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "mynewpasswordl11",
+                      "description": "The user's new password",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/users/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:02:13 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "561"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": 1,\n    \"first_name\": \"Arnold\",\n    \"last_name\": \"Palmer\",\n    \"email\": \"arnold@palmer9.com\",\n    \"slug\": \"arnold\",\n    \"folder_id\": 1,\n    \"email_verified_at\": \"2018-10-18 03:03:12\",\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-19 00:02:13\"\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "b6d9ec9c-ade4-4a00-a310-531a196b2b8f",
+          "name": "Trash User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {},
+            "url": "https://{{host}}/{{api_version}}/users/13/trash",
+            "description": "Trash a user by their id."
+          },
+          "response": [
+            {
+              "id": "c54aafba-7126-43b7-9625-99895d44680a",
+              "name": "Trash User",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/users/13/trash"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:08:20 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "57"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=99"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": " "
+            }
+          ]
+        },
+        {
+          "_postman_id": "c4929acc-e1e9-4234-9da3-ae0f675afcf0",
+          "name": "Delete Trashed User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {},
+            "url": "https://{{host}}/{{api_version}}/users/13",
+            "description": "Permanently delete a trashed user by their id."
+          },
+          "response": [
+            {
+              "id": "83c01070-2b3d-41d9-8dbe-c1f38f1d3156",
+              "name": "Delete User",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/users/13"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:10:02 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": " "
+            }
+          ]
+        },
+        {
+          "_postman_id": "0eccca9e-5899-44b1-bbde-5ba63e0bc262",
+          "name": "Restore Trashed User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {},
+            "url": "https://{{host}}/{{api_version}}/users/14/restore",
+            "description": "Restore a trashed user by their id."
+          },
+          "response": [
+            {
+              "id": "3dfbe0ac-4cab-4a3f-9354-8dc4bc9b9926",
+              "name": "Restore Trashed User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/users/14/restore"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:13:37 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "56"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "235"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"id\": 14,\n    \"first_name\": \"Judd\",\n    \"last_name\": \"Thiel\",\n    \"email\": \"hope.lindgren@example.com\",\n    \"slug\": \"hopelindgren\",\n    \"folder_id\": 14,\n    \"email_verified_at\": null,\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:17\",\n    \"updated_at\": \"2018-10-19 00:13:37\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "872b4db7-2431-4748-a20d-fe4bc46a4cc9",
+      "name": "User Role",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "3d90b639-c0af-4af1-abef-e7d4db1030a3",
+          "name": "Current User Roles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Response paging information is correct\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    const query = request.url.split('?')[1];",
+                  "    const paramArray = query.split('&');",
+                  "    paramArray.forEach((param) => {",
+                  "        var key = param.split('=')[0];",
+                  "        var value = param.split('=')[1];",
+                  "",
+                  "        if (key == 'page') {",
+                  "            pm.expect(jsonData.current_page).to.equal(parseInt(value));",
+                  "        }",
+                  "",
+                  "        if (key == 'limit') {",
+                  "            pm.expect(jsonData.per_page).to.equal(parseInt(value));",
+                  "        }",
+                  "    });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/{{api_version}}/user/roles?page=1&limit=10",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{api_version}}",
+                "user",
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "equals": true,
+                  "description": "The page to get"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "equals": true,
+                  "description": "The max number of items per page"
+                }
+              ]
+            },
+            "description": "Fetch the currently logged in user's roles."
+          },
+          "response": [
+            {
+              "id": "0684c8c9-df77-4016-946f-6ea3a6f0c930",
+              "name": "Current User Roles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{host}}/{{api_version}}/user/roles?page=1&limit=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{api_version}}",
+                    "user",
+                    "roles"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "equals": true,
+                      "description": "The page to get"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "equals": true,
+                      "description": "The max number of items per page"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:23:24 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "935"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"api_manager\",\n            \"display_name\": \"API Manager\",\n            \"description\": \"Manages API clients.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 1\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"user_manager\",\n            \"display_name\": \"User Manager\",\n            \"description\": \"Manages user accounts.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 2\n            }\n        },\n        {\n            \"id\": 3,\n            \"name\": \"drive_manager\",\n            \"display_name\": \"Drive Manager\",\n            \"description\": \"Manages drive accounts.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 3\n            }\n        }\n    ],\n    \"first_page_url\": \"https://dev.api.buonomo.app/v1/user/roles?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"https://dev.api.buonomo.app/v1/user/roles?page=1\",\n    \"next_page_url\": null,\n    \"path\": \"https://dev.api.buonomo.app/v1/user/roles\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 3,\n    \"total\": 3\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "39a2401f-7516-4f4f-a38a-fa1f120bec22",
+          "name": "Single User Roles",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response must contain valid JSON\", function () {",
+                  "     pm.response.to.be.json;",
+                  "});",
+                  "",
+                  "pm.test(\"Response paging information is correct\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    const query = request.url.split('?')[1];",
+                  "    const paramArray = query.split('&');",
+                  "    paramArray.forEach((param) => {",
+                  "        var key = param.split('=')[0];",
+                  "        var value = param.split('=')[1];",
+                  "",
+                  "        if (key == 'page') {",
+                  "            pm.expect(jsonData.current_page).to.equal(parseInt(value));",
+                  "        }",
+                  "",
+                  "        if (key == 'limit') {",
+                  "            pm.expect(jsonData.per_page).to.equal(parseInt(value));",
+                  "        }",
+                  "    });",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/{{api_version}}/users/1/roles?page=1&limit=10",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "{{api_version}}",
+                "users",
+                "1",
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "equals": true,
+                  "description": "The page to get"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "equals": true,
+                  "description": "The max number of items per page"
+                }
+              ]
+            },
+            "description": "Fetch a user's roles by id."
+          },
+          "response": [
+            {
+              "id": "6f511559-5423-4acf-99aa-5963345856ca",
+              "name": "Single User Roles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{host}}/{{api_version}}/users/1/roles?page=1&limit=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{api_version}}",
+                    "users",
+                    "1",
+                    "roles"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "equals": true,
+                      "description": "The page to get"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "equals": true,
+                      "description": "The max number of items per page"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:30:21 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "947"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"api_manager\",\n            \"display_name\": \"API Manager\",\n            \"description\": \"Manages API clients.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 1\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"user_manager\",\n            \"display_name\": \"User Manager\",\n            \"description\": \"Manages user accounts.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 2\n            }\n        },\n        {\n            \"id\": 3,\n            \"name\": \"drive_manager\",\n            \"display_name\": \"Drive Manager\",\n            \"description\": \"Manages drive accounts.\",\n            \"created_at\": \"2018-10-18 03:03:06\",\n            \"updated_at\": \"2018-10-18 03:03:06\",\n            \"pivot\": {\n                \"user_id\": 1,\n                \"role_id\": 3\n            }\n        }\n    ],\n    \"first_page_url\": \"https://dev.api.buonomo.app/v1/users/1/roles?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"https://dev.api.buonomo.app/v1/users/1/roles?page=1\",\n    \"next_page_url\": null,\n    \"path\": \"https://dev.api.buonomo.app/v1/users/1/roles\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 3,\n    \"total\": 3\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "76428fac-f113-4ba2-b2c0-66b93cfdb907",
+          "name": "Assign User Role",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "role",
+                  "value": "drive_manager",
+                  "description": "The role to assign the user",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "https://{{host}}/{{api_version}}/users/20/roles",
+            "description": "Assign a user a role."
+          },
+          "response": [
+            {
+              "id": "e77ea7d6-6a34-42a7-a8e0-83aa49021d87",
+              "name": "Assign User Role",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "role",
+                      "value": "drive_manager",
+                      "description": "The role to assign the user",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/users/20/roles"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:33:31 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "53"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": " "
+            }
+          ]
+        },
+        {
+          "_postman_id": "62696f5b-4aa1-45d8-a91e-4395b63552e8",
+          "name": "Remove User Role",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "type": "text",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "type": "text",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "The role to assign the user",
+                  "key": "role",
+                  "type": "text",
+                  "value": "drive_manager"
+                }
+              ]
+            },
+            "url": "https://{{host}}/{{api_version}}/users/20/roles",
+            "description": "Remove a user's role."
+          },
+          "response": [
+            {
+              "id": "557c89b2-1001-4439-a31a-61ad715624f2",
+              "name": "Remove User Role",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "The role to assign the user",
+                      "key": "role",
+                      "type": "text",
+                      "value": "drive_manager"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/users/20/roles"
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 19 Oct 2018 00:35:52 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "Apache/2.4.29 (Ubuntu)"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "60"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "59"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5, max=100"
+                },
+                {
+                  "key": "Connection",
+                  "value": "Keep-Alive"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=UTF-8"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_postman_id": "63c11bbd-4c9b-4715-a610-c39ec7bf13e2",
+      "name": "Drive",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "c9935d25-d85d-46c1-bc6b-26137d94eca5",
+          "name": "Folder",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "3a36afb3-0d1f-4a7e-a0ff-767714b79ca0",
+              "name": "Current User Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{host}}/{{api_version}}/user/drive/folder",
+                "description": "Fetch the currently logged in user's root folder."
+              },
+              "response": [
+                {
+                  "id": "1e25dd47-cb35-42e0-b38a-f9fdf56afd89",
+                  "name": "Current User Folder",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://{{host}}/{{api_version}}/user/drive/folder"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 00:41:01 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "311"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"id\": 1,\n    \"name\": \"arnold\",\n    \"folder_id\": null,\n    \"owned_by_id\": 1,\n    \"created_by_id\": 1,\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-18 23:59:52\",\n    \"path\": \"/arnold/\",\n    \"owned_by\": {\n        \"id\": 1,\n        \"first_name\": \"Arnold\",\n        \"last_name\": \"Palmer\"\n    },\n    \"created_by\": {\n        \"id\": 1,\n        \"first_name\": \"Arnold\",\n        \"last_name\": \"Palmer\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "be16e33a-e73a-4c20-b0b4-4aafe78df1ed",
+              "name": "Single Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{host}}/{{api_version}}/drive/folders/1",
+                "description": "Fetch a signle folder by id."
+              },
+              "response": [
+                {
+                  "id": "9f0d1f77-d0a9-4e8d-89c3-62cecfc44c35",
+                  "name": "Single Folder",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/1"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 00:41:24 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "59"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "311"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"id\": 1,\n    \"name\": \"arnold\",\n    \"folder_id\": null,\n    \"owned_by_id\": 1,\n    \"created_by_id\": 1,\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-18 23:59:52\",\n    \"path\": \"/arnold/\",\n    \"owned_by\": {\n        \"id\": 1,\n        \"first_name\": \"Arnold\",\n        \"last_name\": \"Palmer\"\n    },\n    \"created_by\": {\n        \"id\": 1,\n        \"first_name\": \"Arnold\",\n        \"last_name\": \"Palmer\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "6cb179f2-537e-4258-b6c9-931d85241b9e",
+              "name": "All Folders",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      "",
+                      "pm.test(\"Response paging information is correct\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    const query = request.url.split('?')[1];",
+                      "    const paramArray = query.split('&');",
+                      "    paramArray.forEach((param) => {",
+                      "        var key = param.split('=')[0];",
+                      "        var value = param.split('=')[1];",
+                      "",
+                      "        if (key == 'page') {",
+                      "            pm.expect(jsonData.current_page).to.equal(parseInt(value));",
+                      "        }",
+                      "",
+                      "        if (key == 'limit') {",
+                      "            pm.expect(jsonData.per_page).to.equal(parseInt(value));",
+                      "        }",
+                      "    });",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{host}}/{{api_version}}/drive/folders?page=1&limit=10&owned_by_id=4",
+                  "protocol": "https",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{api_version}}",
+                    "drive",
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "equals": true,
+                      "description": "The page to get"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "equals": true,
+                      "description": "The max number of items per page"
+                    },
+                    {
+                      "key": "owned_by_id",
+                      "value": "4",
+                      "equals": true,
+                      "description": "The  id of the owner of folders to retreive"
+                    }
+                  ]
+                },
+                "description": "Fetch all folders."
+              },
+              "response": [
+                {
+                  "id": "7cf2f72e-c307-4a2c-a03b-a21b4d3e7ded",
+                  "name": "All Folders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "https://{{host}}/{{api_version}}/drive/folders?page=1&limit=10&owned_by_id=4",
+                      "protocol": "https",
+                      "host": [
+                        "{{host}}"
+                      ],
+                      "path": [
+                        "{{api_version}}",
+                        "drive",
+                        "folders"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1",
+                          "equals": true,
+                          "description": "The page to get"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "10",
+                          "equals": true,
+                          "description": "The max number of items per page"
+                        },
+                        {
+                          "key": "owned_by_id",
+                          "value": "4",
+                          "equals": true,
+                          "description": "The  id of the owner of folders to retreive"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 00:41:45 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "671"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"kaleighvandervort\",\n            \"folder_id\": null,\n            \"owned_by_id\": 4,\n            \"created_by_id\": 4,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:03:19\",\n            \"updated_at\": \"2018-10-18 03:03:19\",\n            \"path\": \"/kaleighvandervort/\",\n            \"owned_by\": {\n                \"id\": 4,\n                \"first_name\": \"Kayden\",\n                \"last_name\": \"Weissnat\"\n            },\n            \"created_by\": {\n                \"id\": 4,\n                \"first_name\": \"Kayden\",\n                \"last_name\": \"Weissnat\"\n            }\n        }\n    ],\n    \"first_page_url\": \"https://dev.api.buonomo.app/v1/drive/folders?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"https://dev.api.buonomo.app/v1/drive/folders?page=1\",\n    \"next_page_url\": null,\n    \"path\": \"https://dev.api.buonomo.app/v1/drive/folders\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 1,\n    \"total\": 1\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "a99be7e7-1238-4115-b4dd-bd51c42c9ee7",
+              "name": "All Child Folders",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      "",
+                      "pm.test(\"Response paging information is correct\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    const query = request.url.split('?')[1];",
+                      "    const paramArray = query.split('&');",
+                      "    paramArray.forEach((param) => {",
+                      "        var key = param.split('=')[0];",
+                      "        var value = param.split('=')[1];",
+                      "",
+                      "        if (key == 'page') {",
+                      "            pm.expect(jsonData.current_page).to.equal(parseInt(value));",
+                      "        }",
+                      "",
+                      "        if (key == 'limit') {",
+                      "            pm.expect(jsonData.per_page).to.equal(parseInt(value));",
+                      "        }",
+                      "    });",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "https://{{host}}/{{api_version}}/drive/folders/1/folders?page=1&limit=10",
+                  "protocol": "https",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "{{api_version}}",
+                    "drive",
+                    "folders",
+                    "1",
+                    "folders"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "equals": true,
+                      "description": "The page to get"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10",
+                      "equals": true,
+                      "description": "The max number of items per page"
+                    }
+                  ]
+                },
+                "description": "Fetch all child folders of a single folder."
+              },
+              "response": [
+                {
+                  "id": "05088424-0211-46d6-8986-d7598c8f1e87",
+                  "name": "All Child Folders",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "https://{{host}}/{{api_version}}/drive/folders/1/folders?page=1&limit=10",
+                      "protocol": "https",
+                      "host": [
+                        "{{host}}"
+                      ],
+                      "path": [
+                        "{{api_version}}",
+                        "drive",
+                        "folders",
+                        "1",
+                        "folders"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1",
+                          "equals": true,
+                          "description": "The page to get"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "10",
+                          "equals": true,
+                          "description": "The max number of items per page"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 00:43:03 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "707"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 52,\n            \"name\": \"Bob Folder dfdfd\",\n            \"folder_id\": 1,\n            \"owned_by_id\": 1,\n            \"created_by_id\": 1,\n            \"deleted_at\": null,\n            \"created_at\": \"2018-10-18 03:15:42\",\n            \"updated_at\": \"2018-10-18 03:15:42\",\n            \"path\": \"/arnold/Bob Folder dfdfd/\",\n            \"owned_by\": {\n                \"id\": 1,\n                \"first_name\": \"Arnold\",\n                \"last_name\": \"Palmer\"\n            },\n            \"created_by\": {\n                \"id\": 1,\n                \"first_name\": \"Arnold\",\n                \"last_name\": \"Palmer\"\n            }\n        }\n    ],\n    \"first_page_url\": \"https://dev.api.buonomo.app/v1/drive/folders/1/folders?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"https://dev.api.buonomo.app/v1/drive/folders/1/folders?page=1\",\n    \"next_page_url\": null,\n    \"path\": \"https://dev.api.buonomo.app/v1/drive/folders/1/folders\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 1,\n    \"total\": 1\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "75163f05-3915-4958-85de-4a756d3b789c",
+              "name": "Download Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "https://{{host}}/{{api_version}}/drive/folders/1/download",
+                "description": "Download a zip file of a folder and it's contents."
+              },
+              "response": [
+                {
+                  "id": "49362e24-fe9e-4100-bd27-a5948cf6f43b",
+                  "name": "Download Folder",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/1/download"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "raw",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 00:44:19 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "public"
+                    },
+                    {
+                      "key": "Last-Modified",
+                      "value": "Fri, 19 Oct 2018 00:44:19 GMT"
+                    },
+                    {
+                      "key": "Content-Disposition",
+                      "value": "attachment; filename=arnold.zip"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "1218"
+                    },
+                    {
+                      "key": "Accept-Ranges",
+                      "value": "bytes"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/zip"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "Raw file data"
+                }
+              ]
+            },
+            {
+              "_postman_id": "99564b0c-f06c-4a0e-a675-ff7f9aeebbba",
+              "name": "Create Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      "",
+                      "pm.test(\"Created folder has correct information\", function () {",
+                      "    const responseData = pm.response.json();",
+                      "    pm.expect(parseInt(request.data.folder_id)).to.equal(responseData.folder_id);",
+                      "    pm.expect(request.data.name).to.equal(responseData.name);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "The folder's name",
+                      "key": "name",
+                      "type": "text",
+                      "value": "A New Folder"
+                    },
+                    {
+                      "key": "folder_id",
+                      "value": "1",
+                      "description": "The folder's parent id",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/drive/folders",
+                "description": "Create a new folder."
+              },
+              "response": [
+                {
+                  "id": "4002de07-b0fa-4d44-b57b-6b6eeaf6cc57",
+                  "name": "Create Folder",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "The folder's name",
+                          "key": "name",
+                          "type": "text",
+                          "value": "A New Folder"
+                        },
+                        {
+                          "key": "folder_id",
+                          "value": "1",
+                          "description": "The folder's parent id",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": "https://{{host}}/{{api_version}}/drive/folders"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:14:53 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "59"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "184"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"name\": \"A New Folder\",\n    \"folder_id\": 1,\n    \"owned_by_id\": 1,\n    \"created_by_id\": 1,\n    \"updated_at\": \"2018-10-19 01:14:53\",\n    \"created_at\": \"2018-10-19 01:14:53\",\n    \"id\": 71,\n    \"path\": \"/mrb2590/A New Folder/\"\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "a8e16338-8941-4e03-ad10-cd4e61e760b3",
+              "name": "Update Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      "",
+                      "pm.test(\"Updated folder has correct information\", function () {",
+                      "    const responseData = pm.response.json();",
+                      "    pm.expect(request.data.name).to.equal(responseData.name);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "name",
+                      "value": "New Folder Name",
+                      "description": "The folder's name",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/drive/folders/1",
+                "description": "Update a folder."
+              },
+              "response": [
+                {
+                  "id": "10135ba9-ebea-466d-bb6e-cf5c4be882d0",
+                  "name": "Update Folder",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/x-www-form-urlencoded",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "key": "name",
+                          "value": "New Folder Name",
+                          "description": "The folder's name",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/1"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:18:14 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "59"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "327"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"id\": 1,\n    \"name\": \"New Folder Name\",\n    \"folder_id\": null,\n    \"owned_by_id\": 1,\n    \"created_by_id\": 1,\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 03:03:12\",\n    \"updated_at\": \"2018-10-19 01:18:14\",\n    \"path\": \"/New Folder Name/\",\n    \"owned_by\": {\n        \"id\": 1,\n        \"first_name\": \"Mike\",\n        \"last_name\": \"Buonomo\"\n    },\n    \"created_by\": {\n        \"id\": 1,\n        \"first_name\": \"Mike\",\n        \"last_name\": \"Buonomo\"\n    }\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "c09ca4be-4d18-40c7-b6f8-0818da5d9b58",
+              "name": "Move Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "The folder's name",
+                      "key": "folder_id",
+                      "type": "text",
+                      "value": "4"
+                    }
+                  ]
+                },
+                "url": "https://{{host}}/{{api_version}}/drive/folders/58/move",
+                "description": "Move a folder into another folder."
+              },
+              "response": [
+                {
+                  "id": "7b8031cb-c1f1-4c59-851a-57e485b48349",
+                  "name": "Move Folder",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "The folder's name",
+                          "key": "folder_id",
+                          "type": "text",
+                          "value": "4"
+                        }
+                      ]
+                    },
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/58/move"
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "html",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:20:53 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "text/html; charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": " "
+                }
+              ]
+            },
+            {
+              "_postman_id": "d7ce98d5-fc8d-42e5-8598-d83bf8204a78",
+              "name": "Trash Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/drive/folders/54/trash",
+                "description": "Trash a folder by it's id."
+              },
+              "response": [
+                {
+                  "id": "d419e3ed-8376-4c79-b072-edc087b4cc9f",
+                  "name": "Trash Folder",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/54/trash"
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "html",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:23:06 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "58"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "text/html; charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": " "
+                }
+              ]
+            },
+            {
+              "_postman_id": "a6f7ab86-4a33-4150-8878-fed4b59a353c",
+              "name": "Delete Trashed Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/drive/folders/54",
+                "description": "Permanently delete a trashed folder by it's id."
+              },
+              "response": [
+                {
+                  "id": "e72b2697-d79c-4ade-bcc3-b304773a1136",
+                  "name": "Delete Trashed Folder",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/54"
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "html",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:24:36 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "56"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "text/html; charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null
+                }
+              ]
+            },
+            {
+              "_postman_id": "83c302b0-8686-4860-8ebb-5ca202ecbc09",
+              "name": "Restore Trashed Folder",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c5147f31-c58d-437f-bb72-480c33ddb1e4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Response must contain valid JSON\", function () {",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "type": "text",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "https://{{host}}/{{api_version}}/drive/folders/56/restore",
+                "description": "Restore a trashed folder by it's id."
+              },
+              "response": [
+                {
+                  "id": "3d89b844-91b7-4abb-a7ce-1b4ac101138f",
+                  "name": "Restore Trashed Folder",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "type": "text",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "https://{{host}}/{{api_version}}/drive/folders/56/restore"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Fri, 19 Oct 2018 01:25:47 GMT"
+                    },
+                    {
+                      "key": "Server",
+                      "value": "Apache/2.4.29 (Ubuntu)"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Authorization"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-RateLimit-Limit",
+                      "value": "60"
+                    },
+                    {
+                      "key": "X-RateLimit-Remaining",
+                      "value": "56"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "399"
+                    },
+                    {
+                      "key": "Keep-Alive",
+                      "value": "timeout=5, max=100"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "Keep-Alive"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"id\": 56,\n    \"name\": \"Bob Folder dfdfdd sdfg sd\",\n    \"folder_id\": 53,\n    \"owned_by_id\": 1,\n    \"created_by_id\": 1,\n    \"deleted_at\": null,\n    \"created_at\": \"2018-10-18 04:05:04\",\n    \"updated_at\": \"2018-10-19 01:25:47\",\n    \"path\": \"/New Folder Name/Bob Folder dfdfd/Bob Folder dfdfd/Bob Folder dfdfdd sdfg sd/\",\n    \"owned_by\": {\n        \"id\": 1,\n        \"first_name\": \"Mike\",\n        \"last_name\": \"Buonomo\"\n    },\n    \"created_by\": {\n        \"id\": 1,\n        \"first_name\": \"Mike\",\n        \"last_name\": \"Buonomo\"\n    }\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": {
+      "accessToken": "{{token}}",
+      "tokenType": "Bearer",
+      "addTokenTo": "header"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "3a5cede2-a586-48a8-9a26-b26b112e055d",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "bfc44bcd-2d50-4f38-98eb-6dc361f5e04b",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
